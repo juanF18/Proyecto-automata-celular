@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-
+import time
 from interfaz.interfazAutomata import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -17,7 +17,9 @@ class Ventana(QWidget):
 
     def Aleatorio(self):
         x = np.random.randint(255)
+        y = self.ui.instrumento1.currentText()
         self.ui.automata_text.setText(str(x))
+        print(y)
 
     def Ejecutar(self):
         if self.ui.automata_text.text() != None:

@@ -77,16 +77,11 @@ def automata_celular(rule):
 
         for e in ev:
             if e.type == pygame.QUIT:
-                sys.exit()
+                # sys.exit()
+                pygame.quit()
+
             if e.type == pygame.KEYDOWN:
                 pauseExect = not pauseExect
-
-            mouseClick = pygame.mouse.get_pressed(num_buttons=3)
-
-            if mouseClick[0] == True:
-                posX, posY = pygame.mouse.get_pos()
-                celX, celY = int(np.floor(posX/cuW)), int(np.floor(posY/cuH))
-                newGameState[celX, celY] = 1
 
         for x in range(0, ncX):
             # se crea el poligono de para cada celda
@@ -103,13 +98,15 @@ def automata_celular(rule):
             # se dibujan los cuadrados para x y para y
             if newGameState[x, y] == 1:
                 pygame.draw.polygon(screen, (0, 255, 0), poly, 0)
-                la_piano.play()
+                # la_piano.play()
             elif newGameState[x, y] == 0:
                 pygame.draw.polygon(screen, (0, 0, 255), poly, 0)
-                nota.play()
+                # nota.play()
 
+        # time.sleep(0.1)
+        pygame.time.delay(1000)
         if not pauseExect:
-            y = (y+1) % ncY
+            pygame.quit()
 
         # actualizamos el juego
         gameState = np.copy(newGameState)
@@ -125,3 +122,7 @@ def manual_rule(x):
 
 def ejecutar_pygame(numero):
     automata_celular(numero)
+
+
+for x in range(30, 33):
+    ejecutar_pygame(x)
