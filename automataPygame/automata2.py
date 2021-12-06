@@ -10,7 +10,7 @@ from pygame import mixer
 # inicializacion de la pantalla
 
 
-def automata_celular(rule):
+def automata_celular(rule, instrumento1,  nota1, nota2, color1, color2):
     pygame.init()
 
     # ancho y alto de la pantalla
@@ -54,8 +54,9 @@ def automata_celular(rule):
 
     # funcion para reproducir los sonidos
 
-    nota = mixer.Sound(f'./Notas_Musicales/guitarra/la_guitarra.wav')
-    la_piano = mixer.Sound("./Notas_Musicales/piano/La_pianowav.wav")
+    nota0 = mixer.Sound(f'./Notas_Musicales/{instrumento1}/{nota1}.wav')
+    nota1 = mixer.Sound(f'./Notas_Musicales/{instrumento1}/{nota2}.wav')
+
     for y in range(0, ncY):
         for x in range(0, ncX):
             # se crea el poligono de para cada celda
@@ -77,8 +78,7 @@ def automata_celular(rule):
 
         for e in ev:
             if e.type == pygame.QUIT:
-                # sys.exit()
-                pygame.quit()
+                sys.exit()
 
             if e.type == pygame.KEYDOWN:
                 pauseExect = not pauseExect
@@ -97,16 +97,16 @@ def automata_celular(rule):
 
             # se dibujan los cuadrados para x y para y
             if newGameState[x, y] == 1:
-                pygame.draw.polygon(screen, (0, 255, 0), poly, 0)
-                # la_piano.play()
+                pygame.draw.polygon(screen, color1, poly, 0)
+                nota0.play()
             elif newGameState[x, y] == 0:
-                pygame.draw.polygon(screen, (0, 0, 255), poly, 0)
-                # nota.play()
+                pygame.draw.polygon(screen, color2, poly, 0)
+                nota1.play()
 
-        # time.sleep(0.1)
-        pygame.time.delay(1000)
+        time.sleep(0.1)
+
         if not pauseExect:
-            pygame.quit()
+            y = (y+1) % ncY
 
         # actualizamos el juego
         gameState = np.copy(newGameState)
@@ -120,9 +120,5 @@ def manual_rule(x):
     return rules
 
 
-def ejecutar_pygame(numero):
-    automata_celular(numero)
-
-
-for x in range(30, 33):
-    ejecutar_pygame(x)
+def ejecutar_pygame(numero, instrumento1, nota1, nota2, color1, color2):
+    automata_celular(numero, instrumento1, nota1, nota2, color1, color2)
