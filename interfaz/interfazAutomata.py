@@ -50,6 +50,7 @@ class Ui_MainWindow(object):
         self.instrumento1.addItem("")
         self.instrumento1.addItem("")
         self.instrumento1.addItem("")
+        self.instrumento1.addItem("")
         self.instrumento2 = QtWidgets.QComboBox(self.centralwidget)
         self.instrumento2.setGeometry(QtCore.QRect(30, 300, 291, 25))
         self.instrumento2.setObjectName("instrumento2")
@@ -62,6 +63,7 @@ class Ui_MainWindow(object):
         self.instrumento2.addItem("")
         self.instrumento2.addItem("")
         self.instrumento2.addItem("")
+        self.instrumento1.addItem("")
         self.instrumento3 = QtWidgets.QComboBox(self.centralwidget)
         self.instrumento3.setGeometry(QtCore.QRect(30, 340, 291, 25))
         self.instrumento3.setObjectName("instrumento3")
@@ -74,6 +76,7 @@ class Ui_MainWindow(object):
         self.instrumento3.addItem("")
         self.instrumento3.addItem("")
         self.instrumento3.addItem("")
+        self.instrumento1.addItem("")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(30, 230, 311, 17))
         self.label_3.setObjectName("label_3")
@@ -129,14 +132,9 @@ class Ui_MainWindow(object):
         self.label_4.setGeometry(QtCore.QRect(390, 230, 251, 17))
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(680, 230, 151, 17))
+        self.label_5.setGeometry(QtCore.QRect(680, 230, 251, 17))
         self.label_5.setObjectName("label_5")
-        self.frontera = QtWidgets.QComboBox(self.centralwidget)
-        self.frontera.setGeometry(QtCore.QRect(670, 260, 241, 25))
-        self.frontera.setObjectName("frontera")
-        self.frontera.addItem("")
-        self.frontera.addItem("")
-        self.frontera.addItem("")
+
         self.ejecutar = QtWidgets.QPushButton(self.centralwidget)
         self.ejecutar.setGeometry(QtCore.QRect(30, 400, 901, 31))
         self.ejecutar.setStyleSheet("background-color: rgb(20, 154, 1)")
@@ -162,6 +160,8 @@ class Ui_MainWindow(object):
         self.instrumento1.setItemText(6, _translate("MainWindow", "Piano"))
         self.instrumento1.setItemText(7, _translate("MainWindow", "Clarinete"))
         self.instrumento1.setItemText(8, _translate("MainWindow", "Tambor"))
+        self.instrumento1.setItemText(9, _translate("MainWindow", "Ninguna"))
+
         self.instrumento2.setItemText(0, _translate("MainWindow", "Guitarra"))
         self.instrumento2.setItemText(1, _translate("MainWindow", "Bateria"))
         self.instrumento2.setItemText(2, _translate("MainWindow", "Bajo"))
@@ -171,6 +171,8 @@ class Ui_MainWindow(object):
         self.instrumento2.setItemText(6, _translate("MainWindow", "Piano"))
         self.instrumento2.setItemText(7, _translate("MainWindow", "Clarinete"))
         self.instrumento2.setItemText(8, _translate("MainWindow", "Tambor"))
+        self.instrumento2.setItemText(8, _translate("MainWindow", "Tambor"))
+
         self.instrumento3.setItemText(0, _translate("MainWindow", "Guitarra"))
         self.instrumento3.setItemText(1, _translate("MainWindow", "Bateria"))
         self.instrumento3.setItemText(2, _translate("MainWindow", "Bajo"))
@@ -180,6 +182,8 @@ class Ui_MainWindow(object):
         self.instrumento3.setItemText(6, _translate("MainWindow", "Piano"))
         self.instrumento3.setItemText(7, _translate("MainWindow", "Clarinete"))
         self.instrumento3.setItemText(8, _translate("MainWindow", "Tambor"))
+        self.instrumento3.setItemText(8, _translate("MainWindow", "Tambor"))
+
         self.label_3.setText(_translate(
             "MainWindow", "Seleccione los instrumentos"))
         self.nota1.setItemText(0, _translate("MainWindow", "Do"))
@@ -216,9 +220,7 @@ class Ui_MainWindow(object):
             "MainWindow", "Seleccione 2 notas para reproducir"))
         self.label_5.setText(_translate(
             "MainWindow", "Seleccione la frontera"))
-        self.frontera.setItemText(0, _translate("MainWindow", "Circular"))
-        self.frontera.setItemText(1, _translate("MainWindow", "Espejo"))
-        self.frontera.setItemText(2, _translate("MainWindow", "Definida"))
+
         self.ejecutar.setText(_translate("MainWindow", "Ejecutar"))
 
 
